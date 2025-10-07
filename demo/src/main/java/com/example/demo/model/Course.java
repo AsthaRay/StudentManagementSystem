@@ -9,16 +9,11 @@ import java.util.List;
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String code;
-    private String name;
-
-    @ManyToMany(mappedBy = "courses")
-    private List<Student> students;
+    private Long course_id;
+    private String course_code;
+    private String course_name;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "teacher_id")
     private Teacher teacher;
-    @OneToMany(mappedBy = "course")
-    private List<StudentCourseDetails> studentCourseDetails;
 }
